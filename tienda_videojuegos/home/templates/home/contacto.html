@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Tienda de Videojuegos</title>
-</head>
+{% block title %}Tienda de Videojuegos - Inicio{% endblock %}
 
-<body>
-    <h1>Contacto</h1>
-    <p>Envia un correo a contacto@tiendaVideojuegos.com</p>
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-light">Contacto</h1>
+    <p class="text-light">Envia un correo a <a href="mailto:contacto@tiendavideojuegos.com"
+            class="text-light">contacto@tiendavideojuegos.com</a></p>
 
-    <footer>
-        <p>@ 2026 Tienda de Videojuegos</p>
-        <a href="{% url 'home' %}">Inicio</a>
-    </footer>
-</body>
 
-</html>
+    <div class="alert alert-primary">Estamos disponibles de lunes a viernes de 9:00 am a 18:00 pm</div>
+    <div class="alert alert-warning">El tiempo de respuesta puede variar segun la demanda</div>
+    <div class="alert alert-danger">No envies informacion sensible por este formulario</div>
+
+</div>
+{% endblock %}
