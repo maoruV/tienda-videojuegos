@@ -56,25 +56,28 @@
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'home' %}">
+                                <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                                    href="{% url 'home' %}">
                                     <i class="bi bi-house"></i> Inicio
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="bi bi-shop"></i> Tienda
+                                <a class="nav-link {% if '/catalogo/' in request.path %}active{% endif %}"
+                                    href="{% url 'lista_juegos' %}">
+                                    <i class="bi bi-shop"></i> Catalogo
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link {% if '/noticias/' in request.path %}active{% endif %}" href="#">
                                     <i class="bi bi-newspaper"></i> Noticias
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'contacto' %}">
+                                <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}"
+                                    href="{% url 'contacto' %}">
                                     <i class="bi bi-envelope"></i> Contacto
                                 </a>
                             </li>

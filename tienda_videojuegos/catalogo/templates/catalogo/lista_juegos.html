@@ -19,4 +19,71 @@
     </div>
     {% endfor %}
 </div>
+
+<!-- Paginacion -->
+<nav aria-label="Paginacion" class="mt-4">
+    <ul class="pagination justify-content-center">
+
+        {# Botones anterior #}
+        {% if lista_juegos.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">«</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ lista_juegos.previous_page_number }}">‹</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">«</span></li>
+        <li class="page-item disabled"><span class="page-link">‹</span></li>
+        {% endif %}
+
+        {# Primera página #}
+        {% if lista_juegos.number > 4 %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">1</a>
+        </li>
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+
+        {# Rango central #}
+        {% for num in rango_paginas %}
+        {% if lista_juegos.number == num %}
+        <li class="page-item active">
+            <span class="page-link">{{ num }}</span>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {# Última página #}
+        {% if lista_juegos.number < lista_juegos.paginator.num_pages|add:'-3' %} <li class="page-item disabled">
+            <span class="page-link">...</span></li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ lista_juegos.paginator.num_pages }}">
+                    {{ lista_juegos.paginator.num_pages }}
+                </a>
+            </li>
+            {% endif %}
+
+            {# Botones siguiente #}
+            {% if lista_juegos.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ lista_juegos.next_page_number }}">›</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ lista_juegos.paginator.num_pages }}">»</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">›</span></li>
+            <li class="page-item disabled"><span class="page-link">»</span></li>
+            {% endif %}
+
+    </ul>
+</nav>
+
+
+
 {% endblock %}
