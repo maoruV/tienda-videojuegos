@@ -4,15 +4,46 @@
 {% block title %}Tienda de Videojuegos - Inicio{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-body">Bienvenido a la tienda de Videojuegos</h1>
-    <p class="text-body">Explora nuestro catalogo y disfruta de las mejores ofertas</p>
+<div class="container py-5 text-center">
 
-    <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid my-4">
+    <!-- Titulo -->
+    <h1 class="display-5 fw-bold mb-3">
+        Bienvenido Gamestore tu Tienda de Videojuegos.
+    </h1>
 
-    <div class="alert alert-primary">¡Nueva coleccion de videojuegos disponible esta semana!</div>
-    <div class="alert alert-warning">Recuerda revisar las instrucciones de edad para algunos titulos</div>
-    <div class="alert alert-danger">Algunos productos tienen stock limitado, !apresurate!</div>
+    <p class="lead mb-4">
+        Explora nuestro catálogo y disfruta de las mejores ofertas
+    </p>
+
+    <!-- Logo -->
+    <div class="d-flex justify-content-center mb-4">
+        <div class="logo-container p-4 rounded shadow-sm">
+            <img src="{% static 'img/logo4.png' %}" alt="Logo" class="img-fluid" style="max-width:200px;">
+        </div>
+    </div>
+
+    <!-- Alertas -->
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+            <div class="alert alert-primary">
+                🎮 ¡Nueva colección de videojuegos disponible esta semana!
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="alert alert-warning">
+                ⚠️ Recuerda revisar las instrucciones de edad para algunos títulos
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="alert alert-danger">
+                🔥 Algunos productos tienen stock limitado, ¡apresúrate!
+            </div>
+        </div>
+
+    </div>
 
 </div>
 {% endblock %}
