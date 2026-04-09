@@ -1,75 +1,77 @@
-/* ===============================
-   HEADER
-=================================*/
+/* NAVBAR GLASS */
+.navbar-glass {
 
-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    background: rgba(20, 20, 20, 0.75);
+    transition: all 0.35s ease;
+    z-index: 1030;
+
 }
 
+/* NAVBAR cuando haces scroll */
 
-/* ===============================
-   NAVBAR
-=================================*/
+.navbar-scrolled {
 
-.navbar {
-    border-radius: 0.5rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    background: rgba(10, 10, 10, 0.95);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+
 }
 
+/* Logo animado */
 
-/* ===============================
-   LOGO
-=================================*/
+.logo-navbar {
 
-.navbar-brand img {
     width: 56px;
+    transition: all .3s ease;
+
 }
 
-.navbar-brand span {
-    font-size: 1.25rem;
+.navbar-scrolled .logo-navbar {
+
+    width: 44px;
+
 }
 
+/* LINKS */
 
-/* ===============================
-   BOTÓN CAMBIAR TEMA
-=================================*/
+.nav-link {
 
-.btn-theme-toggle {
-    width: 45px;
-    height: 45px;
-}
-
-
-/* ===============================
-   MENÚ
-=================================*/
-
-.navbar-nav .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
     font-weight: 500;
+    transition: all .2s ease;
+
 }
 
-.navbar-nav .nav-link i {
-    font-size: 1rem;
+.nav-link:hover {
+
+    color: #0dcaf0;
+    transform: translateY(-1px);
+
 }
 
+/* BOTONES */
 
-/* ===============================
-   BUSCADOR
-=================================*/
+.icon-btn {
 
-.navbar form input {
-    min-width: 180px;
+    transition: all .2s ease;
+
 }
 
+.icon-btn:hover {
 
-/* ===============================
-   BOTONES DE ACCIONES
-=================================*/
+    transform: scale(1.1);
 
-.navbar .btn i {
-    font-size: 1.1rem;
+}
+
+/* BUSCADOR */
+
+.search-input {
+
+    border-radius: 20px;
+
 }
 
 /* ===============================
