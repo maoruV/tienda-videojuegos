@@ -103,9 +103,74 @@
                             </a>
 
                             <!-- Usuario -->
-                            <a href="#" class="btn btn-outline-secondary icon-btn">
-                                <i class="bi bi-person"></i>
-                            </a>
+                            <!-- Usuario -->
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+                                        id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                        <!-- Avatar -->
+                                        <div class="avatar-sm rounded-circle overflow-hidden me-2"
+                                            style="width:32px; height:32px;">
+
+                                            {% if user.is_authenticated and user.profile.avatar %}
+                                            <img src="{% static 'img/avatares/'|add:user.profile.avatar|add:'.png' %}"
+                                                alt="Avatar" class="w-100 h-100 object-fit-cover">
+                                            {% else %}
+                                            <img src="{% static 'img/avatares/default.png' %}" alt="Invitado"
+                                                class="w-100 h-100 object-fit-cover">
+                                            {% endif %}
+
+                                        </div>
+
+                                        <!-- Texto -->
+                                        <span class="text-white small">
+                                            Hola,
+                                            {% if user.is_authenticated %}
+                                            <span class="text-danger fw-semibold">{{ user.username }}</span>
+                                            {% else %}
+                                            <span class="text-warning fw-semibold">Invitado</span>
+                                            {% endif %}
+                                        </span>
+                                    </a>
+
+                                    <!-- Dropdown -->
+                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm"
+                                        aria-labelledby="userDropdown">
+
+                                        {% if user.is_authenticated %}
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'perfil' %}">
+                                                <i class="bi bi-person me-2"></i> Mi perfil
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item text-danger" href="{% url 'logout' %}">
+                                                <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+                                            </a>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'login' %}">
+                                                <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar sesión
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'registro' %}">
+                                                <i class="bi bi-person-plus me-2"></i> Registrarse
+                                            </a>
+                                        </li>
+                                        {% endif %}
+
+                                    </ul>
+                                </li>
+                            </ul>
 
                         </div>
 

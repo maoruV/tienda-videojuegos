@@ -29,6 +29,11 @@
 </div>
 <!-- Paginacion -->
 <nav aria-label="Paginacion" class="mt-4">
+    {% if not lista_juegos %}
+    <div class="container">
+        <h2 class="text-body mb-4">No se encontraron resultados para: {{query}}</h2>
+    </div>
+    {% endif %}
     <ul class="pagination justify-content-center">
 
         {# Botones anterior #}
@@ -90,6 +95,7 @@
 
     </ul>
 </nav>
+
 
 
 
