@@ -88,9 +88,11 @@
                         <div class="d-flex align-items-lg-center flex-column flex-lg-row gap-2 gap-lg-3">
 
                             <!-- Buscar -->
-                            <form class="d-flex w-100 w-lg-auto">
-                                <input class="form-control me-2 search-input" type="search" placeholder="Buscar juego">
-                                <button class="btn btn-outline-secondary">
+                            <form class="d-flex w-100 w-lg-auto" role="search" action="{% url 'buscar_juegos' %}"
+                                method="get">
+                                <input class="form-control me-2 search-input" type="search" name="q"
+                                    placeholder="Buscar..." aria-label="Buscar" value="{{request.GET.q|default:''}}">
+                                <button class="btn btn-outline-secondary" type="submit">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </form>
