@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ juego.nombre }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row g-5 align-items-start">
+
+        <!-- Columna izquierda: Imagen del juego -->
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm border-0 overflow-hidden">
+                <img src="{% static 'img/portadas/' %}{{ juego.imagen }}" class="detalle-img rounded-3 img-fluid"
+                    alt="Imagen del juego {{ juego.nombre }}">
+            </div>
+        </div>
+
+        <!-- Columna derecha: Información del juego -->
+        <div class="col-12 col-md-8 text-start">
+
+            <!-- Nombre del juego -->
+            <h1 class="display-5 fw-bold mb-3 text-body">{{ juego.nombre }}</h1>
+
+            <!-- Precio destacado -->
+            <div class="mb-4">
+                <h2 class="text-success fw-bold">${{ juego.precio }} COP</h2>
+                <small class="text-body-secondary">Impuestos incluidos</small>
+            </div>
+
+            <!-- Plataforma -->
+            <p class="text-body mb-4"><strong>Disponible en:</strong> {{ juego.plataforma }}</p>
+
+
+
+            <!-- Detalles del producto -->
+            <div class="mb-5">
+                <h5 class="fw-semibold mb-3 text-body">Detalles del producto</h5>
+                <p class="mb-1 text-body"><strong>Plataforma:</strong> {{ juego.plataforma }}</p>
+                {% if juego.descripcion %}
+                <p class="text-body text-body-secondary">{{ juego.descripcion }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Reseñas -->
+            <div>
+                <h4 class="fw-semibold mb-3 text-body">Reseñas</h4>
+                <p class="text-body text-body-secondary fst-italic">Sección de reseñas de usuarios pendiente de
+                    implementación.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

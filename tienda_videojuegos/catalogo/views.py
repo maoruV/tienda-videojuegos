@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Juego
 
@@ -31,3 +31,16 @@ def lista_juegos(request):
     }
 
     return render(request, 'catalogo/lista_juegos.html', contexto)
+
+
+def detalle_juego(request, pk):
+    # Obtenemos el juego concreto o mostramos un 404 si no existe
+    juego = get_object_or_404(Juego, pk=pk)
+
+    # Creamos el contexto que pasaremos a la plantilla
+    contexto = {
+        'juego': juego
+    }
+
+    # Renderizamos la plantilla de detalle
+    return render(request, 'catalogo/detalle_juego.html', contexto)
