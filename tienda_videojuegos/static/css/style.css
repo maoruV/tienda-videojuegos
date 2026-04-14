@@ -131,3 +131,86 @@
 .footer-divider {
     border-color: #334155;
 }
+
+/* =========================================================
+   TOASTS (NOTIFICACIONES FLOTANTES) – VISTOSOS
+========================================================= */
+
+/* Tamaño, padding, tipografía y efecto vidrio */
+.toast {
+    opacity: 0.9;
+    /* más visible */
+    backdrop-filter: blur(6px);
+    /* desenfoque más marcado */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    /* sombra más profunda */
+    border-radius: 1rem;
+    /* bordes más redondeados */
+    padding: 1rem 1.5rem;
+    /* más espacio interno */
+    font-size: 1.1rem;
+    /* texto más grande */
+    font-weight: 600;
+    /* más llamativo */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: slideUp 0.5s ease-out;
+    min-width: 300px;
+    /* ancho mínimo */
+    max-width: 400px;
+    /* ancho máximo */
+}
+
+/* Hover: más opaco y ligeramente agrandado */
+.toast:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Animación suave al aparecer */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 0.95;
+    }
+}
+
+/* =========================================================
+   TOASTS: COLORES DE TEXTO POR TIPO
+========================================================= */
+
+/* Texto negro para toasts informativos y de advertencia */
+.toast.bg-info,
+.toast.bg-warning,
+.toast.bg-success {
+    color: #000 !important;
+}
+
+/* Botón de cierre visible para todos los tipos */
+.toast .btn-close {
+    filter: invert(0) !important;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Colores de fondo más vivos */
+.toast.bg-success {
+    background-color: #32FF62 !important;
+}
+
+.toast.bg-danger {
+    background-color: #dc3545 !important;
+    color: #fff;
+}
+
+.toast.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.toast.bg-info {
+    background-color: #0062FF !important;
+}

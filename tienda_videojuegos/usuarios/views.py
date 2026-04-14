@@ -21,6 +21,7 @@ def login_view(request):
         if form.is_valid():
             usuario = form.get_user()
             login(request, usuario)
+            messages.success(request, f'Inicio de sesion exitoso {usuario.username}')
             return redirect('home')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos')
@@ -30,6 +31,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
+    messages.info(request, 'Has cerrado sesion correctamente')
     return redirect('login')
 
 @login_required
