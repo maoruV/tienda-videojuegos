@@ -14,8 +14,8 @@ class Carrito(models.Model):
         return f'Carrito de {self.usuario.username}'
 
     def total_items(self):
-        """Devuelve el número total de items en el carrito"""
-        return self.items.count()
+        """Devuelve el número total de productos en el carrito"""
+        return sum(item.cantidad for item in self.items.all())
 
     def total_precio(self):
         """Devuelve el precio total del carrito"""

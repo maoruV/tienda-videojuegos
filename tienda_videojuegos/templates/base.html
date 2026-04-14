@@ -64,7 +64,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link {% if '/catalogo/' in request.path %}active{% endif %}"
-                                    href="{% url 'lista_juegos' %}">
+                                    href="{% url 'catalogo:lista_juegos' %}">
                                     <i class="bi bi-shop"></i> Catalogo
                                 </a>
                             </li>
@@ -98,11 +98,21 @@
                             </form>
 
                             <!-- Carrito -->
-                            <a href="#" class="btn btn-outline-secondary icon-btn">
-                                <i class="bi bi-cart3"></i>
-                            </a>
+                            <ul class="navbar-nav mb-2 mb-lg-0 order-6 order-lg-5 me-3">
+                                <li class="nav-item position-relative">
+                                    <a href="{% url 'carrito:ver_carrito' %}" class="nav-link text-white">
+                                        <div class="position-relative d-inline-block">
+                                            <i class="bi bi-cart3 fa-lg"></i>
+                                            {% if carrito_total_items > 0 %}
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger small">{{
+                                                carrito_total_items }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
 
-                            <!-- Usuario -->
                             <!-- Usuario -->
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown">
@@ -192,6 +202,7 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer-gamer text-white mt-5 pt-5 pb-3">
 
         <div class="container">
