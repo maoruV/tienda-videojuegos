@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Noticias - Gamestore{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'noticias/css/noticias.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Título -->
+    <div class="mb-5 text-center">
+        <h1 class="titulo-noticias">
+            <i class="bi bi-newspaper me-2"></i> Noticias Gaming
+        </h1>
+        <p class="text-muted">
+            Mantente al día con lo último del mundo gamer
+        </p>
+    </div>
+
+    <!-- Lista de noticias -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for noticia in noticias %}
+        <div class="col">
+
+            <div class="card noticia-card h-100">
+
+                <!-- Imagen -->
+                <div class="img-container">
+                    <img src="{% static 'img/noticias/' %}{{ noticia.imagen }}" class="card-img-top"
+                        alt="{{ noticia.titulo }}">
+
+                    <div class="overlay">
+                        <a href="{% url 'noticias:detalle' noticia.id %}" class="btn btn-primary">
+                            Leer más
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contenido -->
+                <div class="card-body">
+
+                    <h5 class="text-white">
+                        {{ noticia.titulo }}
+                    </h5>
+
+                    <p class="fecha">
+                        <i class="bi bi-calendar-event me-1"></i>
+                        {{ noticia.fecha|date:"d M Y" }}
+                    </p>
+
+                    <p class="descripcion">
+                        {{ noticia.contenido|truncatewords:15 }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% empty %}
+
+        <!-- Estado vacío -->
+        <div class="col-12 text-center">
+            <div class="no-noticias">
+                <i class="bi bi-newspaper display-4 mb-3"></i>
+                <h4>No hay noticias disponibles</h4>
+                <p class="text-muted">Pronto tendremos novedades para ti</p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

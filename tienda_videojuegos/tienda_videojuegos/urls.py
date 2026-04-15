@@ -23,5 +23,6 @@ urlpatterns = [
     path('catalogo/', include('catalogo.urls')), # Incluimos las urls de catalogo
     path('buscador/', include('buscador.urls')), # Incluimos las urls de buscador
     path('usuarios/', include('usuarios.urls')), # Incluimos las urls de usuarios
-    path('carrito/', include('carrito.urls')) # Incluimos las urls de carrito
+    path('carrito/', include('carrito.urls')), # Incluimos las urls de carrito
+    path('noticias/', include('noticias.urls')) # Incluimos las urls de noticias
 ]

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ noticia.titulo }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'noticias/css/detalle_noticia.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero-noticia">
+
+    <img src="{% static 'img/noticias/' %}{{ noticia.imagen }}" alt="{{ noticia.titulo }}" class="hero-img">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+
+        <p class="fecha">
+            <i class="bi bi-calendar-event me-1"></i>
+            {{ noticia.fecha|date:"d M Y" }}
+        </p>
+
+        <h1 class="titulo">
+            {{ noticia.titulo }}
+        </h1>
+
+    </div>
+
+</section>
+
+<!-- CONTENIDO -->
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="contenido-noticia">
+
+                <p>
+                    {{ noticia.contenido|linebreaks }}
+                </p>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="mt-5 d-flex flex-wrap gap-3">
+
+                <a href="{% url 'noticias:lista' %}" class="btn btn-outline-light">
+                    <i class="bi bi-arrow-left me-2"></i> Volver a noticias
+                </a>
+
+                <a href="{% url 'catalogo:lista_juegos' %}" class="btn btn-primary">
+                    <i class="bi bi-controller me-2"></i> Ver juegos
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

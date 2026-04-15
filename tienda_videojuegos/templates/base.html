@@ -73,7 +73,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {% if '/noticias/' in request.path %}active{% endif %}" href="#">
+                                <a class="nav-link {% if '/noticias/' in request.path %}active{% endif %}"
+                                    href="{% url 'noticias:lista' %}">
                                     <i class="bi bi-newspaper"></i> Noticias
                                 </a>
                             </li>
