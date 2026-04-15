@@ -1,0 +1,54 @@
+/* Fondo tipo gaming */
+.login-wrapper {
+    min-height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+        url("../../img/banner.jpg") center/cover no-repeat;
+}
+
+/* Card */
+.login-card {
+    background-color: #1e293b;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Logo */
+.login-logo {
+    max-width: 120px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+}
+
+/* Inputs */
+.form-control {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+}
+
+.form-control:focus {
+    background-color: #0f172a;
+    border-color: #3b82f6;
+    box-shadow: none;
+    color: white;
+}
+
+/* Input group */
+.input-group-text {
+    background-color: #334155;
+    border: none;
+    color: #cbd5f5;
+}
+
+/* Botón */
+.btn-primary {
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,29 @@
+/* Fondo */
+body {
+    background-color: #0f172a;
+}
+
+/* Header */
+.perfil-header {
+    text-align: center;
+}
+
+/* Avatar */
+.avatar i {
+    font-size: 5rem;
+    color: #38bdf8;
+}
+
+/* Card */
+.perfil-card {
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    color: #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Botones */
+.btn {
+    border-radius: 10px;
+}
