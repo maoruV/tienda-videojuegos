@@ -3,69 +3,84 @@
 
 {% block title %}{{ juego.nombre }}{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/detalle_juego.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
-    <div class="row g-5 align-items-start">
 
-        <!-- Columna izquierda: Imagen del juego -->
-        <div class="col-12 col-md-4">
-            <div class="card shadow-sm border-0 overflow-hidden">
-                <img src="{% static 'img/portadas/' %}{{ juego.imagen }}" class="detalle-img rounded-3 img-fluid"
-                    alt="Imagen del juego {{ juego.nombre }}">
+    <div class="row g-5">
+
+        <!-- Imagen -->
+        <div class="col-12 col-md-5">
+            <div class="detalle-card">
+
+                <div class="img-wrapper">
+                    <img src="{% static 'img/portadas/' %}{{ juego.imagen }}" class="img-fluid rounded-4"
+                        alt="{{ juego.nombre }}">
+                </div>
+
             </div>
         </div>
 
-        <!-- Columna derecha: Información del juego -->
-        <div class="col-12 col-md-8 text-start">
+        <!-- Información -->
+        <div class="col-12 col-md-7">
 
-            <!-- Nombre del juego -->
-            <h1 class="display-5 fw-bold mb-3 text-body">{{ juego.nombre }}</h1>
+            <h1 class="titulo-juego mb-3 text-body">{{ juego.nombre }}</h1>
 
-            <!-- Precio destacado -->
-            <div class="mb-4">
-                <h2 class="text-success fw-bold">${{ juego.precio }} COP</h2>
-                <small class="text-body-secondary">Impuestos incluidos</small>
+            <!-- Precio -->
+            <div class="precio-box mb-4">
+                <span class="precio">${{ juego.precio }} COP</span>
+                <small>Impuestos incluidos</small>
             </div>
 
             <!-- Plataforma -->
-            <p class="text-body mb-4"><strong>Disponible en:</strong> {{ juego.plataforma }}</p>
-
-            <!-- Botones de acción principales -->
-            <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
-                <a href="{% url 'carrito:agregar' juego.id %}"
-                    class="btn btn-success btn-md rounded-3 shadow-sm d-flex align-items-center justify-content-center">
-                    <i class="bi bi-cart-fill me-2"></i> Añadir al carrito
-                </a>
-                <button
-                    class="btn btn-outline-danger btn-md rounded-3 shadow-sm d-flex align-items-center justify-content-center">
-                    <i class="bi bi-heart-fill me-2"></i> Agregar a favoritos
-                </button>
-                <a href="{% url 'catalogo:lista_juegos' %}"
-                    class="btn btn-secondary btn-md rounded-3 shadow-sm d-flex align-items-center justify-content-center mt-3 mt-sm-0">
-                    <i class="bi bi-arrow-left me-2"></i> Volver al catálogo
-                </a>
+            <div class="mb-4">
+                <span class="badge bg-secondary px-3 py-2">
+                    🎮 {{ juego.plataforma }}
+                </span>
             </div>
 
+            <!-- Botones -->
+            <div class="acciones mb-5">
 
+                <a href="{% url 'carrito:agregar' juego.id %}" class="btn btn-success btn-lg">
+                    <i class="bi bi-cart-fill me-2"></i> Comprar ahora
+                </a>
 
-            <!-- Detalles del producto -->
-            <div class="mb-5">
-                <h5 class="fw-semibold mb-3 text-body">Detalles del producto</h5>
-                <p class="mb-1 text-body"><strong>Plataforma:</strong> {{ juego.plataforma }}</p>
+                <button class="btn btn-outline-danger btn-lg">
+                    <i class="bi bi-heart-fill me-2"></i> Favorito
+                </button>
+
+                <a href="{% url 'catalogo:lista_juegos' %}" class="btn btn-outline-warning btn-lg">
+                    <i class="bi bi-arrow-left me-2"></i> Volver
+                </a>
+
+            </div>
+
+            <!-- Detalles -->
+            <div class="detalle-section mb-4">
+                <h5>📦 Detalles del producto</h5>
+
+                <p><strong>Plataforma:</strong> {{ juego.plataforma }}</p>
+
                 {% if juego.descripcion %}
-                <p class="text-body text-body-secondary">{{ juego.descripcion }}</p>
+                <p class="descripcion">{{ juego.descripcion }}</p>
                 {% endif %}
             </div>
 
             <!-- Reseñas -->
-            <div>
-                <h4 class="fw-semibold mb-3 text-body">Reseñas</h4>
-                <p class="text-body text-body-secondary fst-italic">Sección de reseñas de usuarios pendiente de
-                    implementación.</p>
+            <div class="detalle-section">
+                <h5>⭐ Reseñas</h5>
+                <p class="fst-italic">
+                    Próximamente podrás ver opiniones de otros jugadores.
+                </p>
             </div>
 
         </div>
-    </div>
-</div>
 
+    </div>
+
+</div>
 {% endblock %}

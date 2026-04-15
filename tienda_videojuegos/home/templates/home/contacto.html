@@ -1,18 +1,112 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Tienda de Videojuegos - Inicio{% endblock %}
+{% block title %}Contacto - Gamestore{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-body">Contacto</h1>
-    <p class="text-body">Envia un correo a <a href="mailto:contacto@gamestore.com"
-            class="text-body">contacto@gamestore.com</a></p>
 
+<div class="container py-5">
 
-    <div class="alert alert-primary">Estamos disponibles de lunes a viernes de 9:00 am a 18:00 pm</div>
-    <div class="alert alert-warning">El tiempo de respuesta puede variar segun la demanda</div>
-    <div class="alert alert-danger">No envies informacion sensible por este formulario</div>
+    <!-- Título -->
+    <div class="text-center mb-5">
+        <h1 class="titulo-contacto text-body">
+            <i class="bi bi-envelope-fill me-2"></i> Contáctanos
+        </h1>
+        <p class="text-muted">
+            ¿Tienes dudas o problemas? Estamos aquí para ayudarte
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Información -->
+        <div class="col-md-5">
+
+            <div class="info-card">
+
+                <h5 class="mb-3">
+                    <i class="bi bi-info-circle-fill me-2"></i> Información de contacto
+                </h5>
+
+                <p>
+                    <strong>
+                        <i class="bi bi-envelope-at-fill me-1"></i> Email:
+                    </strong><br>
+                    <a href="mailto:contacto@gamestore.com">contacto@gamestore.com</a>
+                </p>
+
+                <p>
+                    <strong>
+                        <i class="bi bi-clock-fill me-1"></i> Horario:
+                    </strong><br>
+                    Lunes a Viernes<br>
+                    9:00 AM - 6:00 PM
+                </p>
+
+                <div class="alert alert-warning mt-3 d-flex align-items-center">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <div>El tiempo de respuesta puede variar según la demanda</div>
+                </div>
+
+                <div class="alert alert-danger d-flex align-items-center">
+                    <i class="bi bi-shield-lock-fill me-2"></i>
+                    <div>No envíes información sensible</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Formulario -->
+        <div class="col-md-7">
+
+            <div class="form-card">
+
+                <h5 class="mb-4">
+                    <i class="bi bi-chat-dots-fill me-2"></i> Envíanos un mensaje
+                </h5>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-person-fill me-1"></i> Nombre
+                        </label>
+                        <input type="text" name="nombre" class="form-control" placeholder="Tu nombre">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-envelope-fill me-1"></i> Correo electrónico
+                        </label>
+                        <input type="email" name="email" class="form-control" placeholder="tu@email.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-pencil-fill me-1"></i> Mensaje
+                        </label>
+                        <textarea name="mensaje" class="form-control" rows="4"
+                            placeholder="Escribe tu mensaje..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary w-100">
+                        <i class="bi bi-send-fill me-2"></i> Enviar mensaje
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+
 {% endblock %}

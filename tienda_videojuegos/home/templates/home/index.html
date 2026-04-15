@@ -3,47 +3,110 @@
 
 {% block title %}Tienda de Videojuegos - Inicio{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="container py-5 text-center">
 
-    <!-- Titulo -->
-    <h1 class="display-5 fw-bold mb-3">
-        Bienvenido Gamestore tu Tienda de Videojuegos.
-    </h1>
+<!-- HERO -->
+<section class="hero-section text-center d-flex align-items-center justify-content-center rounded-4">
 
-    <p class="lead mb-4">
-        Explora nuestro catálogo y disfruta de las mejores ofertas
-    </p>
+    <div class="hero-content">
+        <div class="logo-hero mb-3">
 
-    <!-- Logo -->
-    <div class="d-flex justify-content-center mb-4">
-        <div class="logo-container p-4 rounded shadow-sm">
-            <img src="{% static 'img/logo4.png' %}" alt="Logo" class="img-fluid" style="max-width:200px;">
+            <img src="{% static 'img/logo4.png' %}" alt="Gamestore Logo" class="img-fluid hero-logo">
+
         </div>
+
+        <h1 class="fw-bold mb-3">
+            Bienvenido a <span>Gamestore</span>
+        </h1>
+
+        <p class="lead mb-4">
+            Descubre los mejores videojuegos al mejor precio
+        </p>
+
+        <a href="{% url 'catalogo:lista_juegos' %}" class="btn btn-primary btn-lg">
+            Explorar catálogo
+        </a>
     </div>
 
-    <!-- Alertas -->
-    <div class="row justify-content-center">
+</section>
 
-        <div class="col-md-8">
-            <div class="alert alert-primary">
-                🎮 ¡Nueva colección de videojuegos disponible esta semana!
+<!-- DESTACADOS -->
+<div class="container py-5">
+
+    <h2 class="seccion-titulo mb-4 text-body"><i class="bi bi-fire"></i> Juegos destacados</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for juego in juegos_destacados %}
+        <div class="col">
+
+            <a href="{% url 'catalogo:detalle_juego' juego.id %}" class="text-decoration-none">
+
+                <div class="card game-card h-100">
+
+                    <div class="img-container">
+                        <img src="{% static 'img/portadas/' %}{{ juego.imagen }}" class="card-img-top"
+                            alt="{{ juego.nombre }}">
+
+                        <div class="overlay">
+                            <button class="btn btn-primary">Ver</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="text-white">{{ juego.nombre }}</h5>
+                        <p class="text-white small">{{ juego.plataforma }}</p>
+                        <p class="precio">${{ juego.precio }} COP</p>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- BENEFICIOS -->
+<div class="container pb-5">
+
+    <h2 class="seccion-titulo mb-4 text-body"><i class="bi bi-joystick"></i> ¿Por qué elegirnos?</h2>
+
+    <div class="row text-center g-4">
+
+        <div class="col-md-4">
+            <div class="beneficio-card">
+                <i class="bi bi-controller display-5"></i>
+                <h5>Gran catálogo</h5>
+                <p>Amplia variedad de juegos para todas las plataformas</p>
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div class="alert alert-warning">
-                ⚠️ Recuerda revisar las instrucciones de edad para algunos títulos
+        <div class="col-md-4">
+            <div class="beneficio-card">
+                <i class="bi bi-lightning-fill display-5"></i>
+                <h5>Ofertas constantes</h5>
+                <p>Descuentos y promociones cada semana</p>
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div class="alert alert-danger">
-                🔥 Algunos productos tienen stock limitado, ¡apresúrate!
+        <div class="col-md-4">
+            <div class="beneficio-card">
+                <i class="bi bi-shield-check display-5"></i>
+                <h5>Compra segura</h5>
+                <p>Transacciones protegidas y confiables</p>
             </div>
         </div>
 
     </div>
 
 </div>
+
 {% endblock %}

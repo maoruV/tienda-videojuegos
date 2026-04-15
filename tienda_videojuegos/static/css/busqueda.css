@@ -1,0 +1,90 @@
+/* Fondo */
+body {
+    background-color: #0f172a;
+}
+
+/* Título */
+.titulo-busqueda {
+    color: #f1f5f9;
+    font-weight: 700;
+}
+
+.titulo-busqueda span {
+    color: #38bdf8;
+}
+
+/* Cards (reutilizado estilo catálogo) */
+.game-card {
+    background-color: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Imagen */
+.img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-container img {
+    transition: transform 0.4s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .overlay {
+    opacity: 1;
+}
+
+/* Precio */
+.precio {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* Sin resultados */
+.no-resultados {
+    background-color: #1e293b;
+    padding: 50px;
+    border-radius: 15px;
+    color: #cbd5f5;
+}
+
+/* Paginación */
+.custom-pagination .page-link {
+    background-color: #1e293b;
+    border: none;
+    color: #cbd5f5;
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.custom-pagination .page-link:hover {
+    background-color: #334155;
+}

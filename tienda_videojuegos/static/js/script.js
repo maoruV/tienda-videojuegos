@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const toast = new bootstrap.Toast(toastEl, {
             delay: 3000,
-            autohide: true
+
         });
 
         toast.show();

@@ -1,0 +1,106 @@
+/* HERO */
+.hero-section {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("../img/banner.jpg") center/cover no-repeat;
+    color: white;
+}
+
+/* Logo en hero */
+.logo-hero {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-logo {
+    max-width: 150px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+
+.hero-content span {
+    color: #38bdf8;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+/* Títulos */
+.seccion-titulo {
+    color: #f1f5f9;
+    font-weight: bold;
+}
+
+/* Cards juegos */
+.game-card {
+    background-color: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Imagen */
+.img-container {
+    position: relative;
+}
+
+.img-container img {
+    transition: transform 0.4s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.game-card:hover .overlay {
+    opacity: 1;
+}
+
+/* Precio */
+.precio {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* Beneficios */
+.beneficio-card {
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    color: #cbd5f5;
+    transition: 0.3s;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-5px);
+}
+
+.beneficio-card i {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
