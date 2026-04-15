@@ -9,10 +9,11 @@
     <title>{% block title %}Tienda de Videojuegos{% endblock %}</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
@@ -199,7 +200,7 @@
     {% if messages %}
     <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
         {% for message in messages %}
-        <div class="toast align-items-center border-0 mb-2 show
+        <div class="toast align-items-center border-0   mb-2
           {% if message.tags == 'success' %}bg-success{% endif %}
           {% if message.tags == 'error' %}bg-danger{% endif %}
           {% if message.tags == 'warning' %}bg-warning{% endif %}

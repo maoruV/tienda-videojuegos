@@ -1,11 +1,30 @@
+:root {
+    --color-bg: #0b0f1a;
+    --color-card: #111827;
+    --color-primary: #6c5ce7;
+    --color-secondary: #00f5d4;
+    --color-accent: #ff3cac;
+    --color-text: #e5e7eb;
+}
+
+/* MODO OSCURO GLOBAL */
+body {
+    background: linear-gradient(135deg, #0b0f1a, #020617);
+    color: var(--color-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 /* NAVBAR GLASS */
 .navbar-glass {
+    backdrop-filter: blur(14px);
+    background: rgba(10, 10, 25, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-    backdrop-filter: blur(12px);
-    background: rgba(20, 20, 20, 0.75);
-    transition: all 0.35s ease;
-    z-index: 1030;
-
+/* Glow effect */
+.navbar-brand span {
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px rgba(0, 245, 212, 0.6);
 }
 
 /* NAVBAR cuando haces scroll */
@@ -19,6 +38,27 @@
 
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* Fade al cargar */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Logo animado */
@@ -39,31 +79,36 @@
 /* LINKS */
 
 .nav-link {
-
-    font-weight: 500;
-    transition: all .2s ease;
-
+    position: relative;
 }
 
-.nav-link:hover {
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--color-secondary);
+    transition: 0.3s;
+}
 
-    color: #0dcaf0;
-    transform: translateY(-1px);
-
+.nav-link:hover::after {
+    width: 100%;
 }
 
 /* BOTONES */
 
-.icon-btn {
-
-    transition: all .2s ease;
-
+.btn-primary {
+    background: linear-gradient(135deg, #6c5ce7, #00f5d4);
+    border: none;
+    color: #000;
+    font-weight: bold;
 }
 
-.icon-btn:hover {
-
-    transform: scale(1.1);
-
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 245, 212, 0.7);
 }
 
 /* BUSCADOR */
@@ -73,6 +118,7 @@
     border-radius: 20px;
 
 }
+
 
 /* ===============================
   FOOTER
@@ -213,4 +259,49 @@
 
 .toast.bg-info {
     background-color: #0062FF !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .navbar-brand span {
+        display: none;
+        /* oculta texto en tablet */
+    }
+
+    .logo-navbar {
+        width: 45px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+
+    .logo-navbar {
+        width: 38px;
+    }
+
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .card img {
+        height: 160px;
+    }
+
+    footer {
+        text-align: center;
+    }
 }

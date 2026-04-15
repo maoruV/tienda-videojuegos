@@ -33,13 +33,32 @@ function togglePassword(fieldId) {
     }
 }
 
+// EFECTO NAVBAR AL HACER SCROLL
+window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("mainNavbar");
+
+    if (window.scrollY > 50) {
+        navbar.classList.add("navbar-scrolled");
+    } else {
+        navbar.classList.remove("navbar-scrolled");
+    }
+});
+
 // Mensajes flotantes
 document.addEventListener("DOMContentLoaded", function () {
-    const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+
+    const toastElList = document.querySelectorAll('.toast');
+
     toastElList.forEach(function (toastEl) {
+
+        console.log("Toast encontrado:", toastEl); // DEBUG
+
         const toast = new bootstrap.Toast(toastEl, {
-            delay: 3000
+            delay: 3000,
+            autohide: true
         });
+
         toast.show();
     });
+
 });
