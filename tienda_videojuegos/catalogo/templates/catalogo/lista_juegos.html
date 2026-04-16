@@ -21,7 +21,7 @@
 
             <a href="{% url 'catalogo:detalle_juego' juego.id %}" class="text-decoration-none">
 
-                <div class="card game-card h-100 border-0">
+                <div class="card game-card h-100 border-0 ">
 
                     <div class="img-container">
                         <img src="{% static 'img/portadas/' %}{{ juego.imagen }}" class="card-img-top"
@@ -34,11 +34,11 @@
                         </div>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body text-light">
 
-                        <h5 class="card-title text-white">{{ juego.nombre }}</h5>
+                        <h5 class="card-title">{{ juego.nombre }}</h5>
 
-                        <p class="text-white small mb-2">
+                        <p class="small mb-2">
                             {{ juego.plataforma }}
                         </p>
 

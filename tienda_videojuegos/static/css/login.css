@@ -2,7 +2,7 @@
 .login-wrapper {
     min-height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-        url("../../img/banner.jpg") center/cover no-repeat;
+        url("../img/banner.jpg") center/cover no-repeat;
 }
 
 /* Card */

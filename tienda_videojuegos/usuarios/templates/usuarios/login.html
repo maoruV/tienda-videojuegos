@@ -4,14 +4,14 @@
 {% block title %}Login{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="login-wrapper d-flex align-items-center justify-content-center">
+<div class="login-wrapper d-flex align-items-center justify-content-center rounded-5">
 
-    <div class="login-card">
+    <div class="login-card bg-body">
 
         <!-- Logo -->
         <div class="text-center mb-3">
@@ -19,8 +19,8 @@
         </div>
 
         <!-- Título -->
-        <h3 class="text-center mb-4 text-white fw-bold text-body">
-            <i class="bi bi-person-circle me-2 text-body"></i> Iniciar sesión
+        <h3 class="text-center mb-4 fw-bold">
+            <i class="bi bi-person-circle me-2"></i> Iniciar sesión
         </h3>
 
         <form method="post" novalidate>
@@ -35,13 +35,13 @@
 
             <!-- Usuario -->
             <div class="mb-3">
-                <label class="form-label text-light">Usuario</label>
+                <label class="form-label">Usuario</label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <i class="bi bi-person-fill"></i>
                     </span>
                     <input type="text" name="{{ form.username.html_name }}"
-                        value="{{ form.username.value|default_if_none:'' }}" class="form-control"
+                        value="{{ form.username.value|default_if_none:'' }}" class="form-control bg-body"
                         placeholder="Tu usuario">
                 </div>
                 {% if form.username.errors %}
@@ -53,7 +53,7 @@
 
             <!-- Contraseña -->
             <div class="mb-3">
-                <label class="form-label text-light">Contraseña</label>
+                <label class="form-label">Contraseña</label>
 
                 <div class="input-group">
                     <span class="input-group-text">
@@ -61,7 +61,7 @@
                     </span>
 
                     <input type="password" name="{{ form.password.html_name }}" id="{{ form.password.id_for_label }}"
-                        class="form-control" placeholder="Tu contraseña">
+                        class="form-control bg-body" placeholder="Tu contraseña">
 
                     <span class="input-group-text" onclick="togglePassword('{{ form.password.id_for_label }}')">
                         <i class="bi bi-eye" id="icon-{{ form.password.id_for_label }}"></i>
@@ -85,7 +85,7 @@
         </form>
 
         <!-- Registro -->
-        <p class="text-center mt-4 text-body">
+        <p class="text-center mt-4">
             ¿No tienes cuenta?
             <a href="{% url 'registro' %}" class="link-info fw-semibold">
                 Regístrate

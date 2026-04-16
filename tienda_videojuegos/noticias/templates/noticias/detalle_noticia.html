@@ -4,13 +4,13 @@
 {% block title %}{{ noticia.titulo }}{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'noticias/css/detalle_noticia.css' %}">
+<link rel="stylesheet" href="{% static 'css/detalle_noticia.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <!-- HERO -->
-<section class="hero-noticia">
+<section class="hero-noticia rounded-5">
 
     <img src="{% static 'img/noticias/' %}{{ noticia.imagen }}" alt="{{ noticia.titulo }}" class="hero-img">
 
@@ -38,7 +38,7 @@
 
         <div class="col-lg-8">
 
-            <div class="contenido-noticia">
+            <div class="contenido-noticia bg-body text-body">
 
                 <p>
                     {{ noticia.contenido|linebreaks }}

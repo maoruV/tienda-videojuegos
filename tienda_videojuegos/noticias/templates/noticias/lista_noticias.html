@@ -4,7 +4,7 @@
 {% block title %}Noticias - Gamestore{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'noticias/css/noticias.css' %}">
+<link rel="stylesheet" href="{% static 'css/noticias.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
 
     <!-- Título -->
     <div class="mb-5 text-center">
-        <h1 class="titulo-noticias">
+        <h1 class="titulo-noticias text-body">
             <i class="bi bi-newspaper me-2"></i> Noticias Gaming
         </h1>
         <p class="text-muted">
@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Contenido -->
-                <div class="card-body">
+                <div class="card-body bg-body">
 
                     <h5 class="text-body">
                         {{ noticia.titulo }}
@@ -53,7 +53,7 @@
                         {{ noticia.fecha|date:"d M Y" }}
                     </p>
 
-                    <p class="descripcion">
+                    <p class="descripcion text-body">
                         {{ noticia.contenido|truncatewords:15 }}
                     </p>
 

@@ -23,12 +23,12 @@
 
                 <thead>
                     <tr>
-                        <th>Juego</th>
-                        <th class="text-center">Plataforma</th>
-                        <th class="text-center">Precio</th>
-                        <th class="text-center">Cantidad</th>
-                        <th class="text-center">Subtotal</th>
-                        <th class="text-center">Acción</th>
+                        <th class="text-body">Juego</th>
+                        <th class="text-center text-body">Plataforma</th>
+                        <th class="text-center text-body">Precio</th>
+                        <th class="text-center text-body">Cantidad</th>
+                        <th class="text-center text-body">Subtotal</th>
+                        <th class="text-center text-body">Acción</th>
                     </tr>
                 </thead>
 
@@ -39,12 +39,12 @@
                         <td class="d-flex align-items-center gap-3">
                             <img src="{% static 'img/portadas/' %}{{ item.juego.imagen }}" class="carrito-img"
                                 alt="{{ item.juego.nombre }}">
-                            <span class="fw-semibold text-white">
+                            <span class="fw-semibold text-body">
                                 {{ item.juego.nombre }}
                             </span>
                         </td>
 
-                        <td class="text-center text-muted">
+                        <td class="text-center text-body">
                             {{ item.juego.plataforma }}
                         </td>
 
@@ -58,7 +58,7 @@
                             </span>
                         </td>
 
-                        <td class="text-center fw-bold text-white">
+                        <td class="text-center fw-bold text-body">
                             ${{ item.subtotal }}
                         </td>
 

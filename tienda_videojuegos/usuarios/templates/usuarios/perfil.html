@@ -4,7 +4,7 @@
 {% block title %}Perfil{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'usuarios/css/perfil.css' %}">
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -54,7 +54,7 @@
                         <i class="bi bi-controller me-2"></i> Explorar juegos
                     </a>
 
-                    <a href="{% url 'carrito:ver_carrito' %}" class="btn btn-outline-secondary text-body">
+                    <a href="{% url 'carrito:ver_carrito' %}" class="btn btn-outline-warning">
                         <i class="bi bi-cart-fill me-2"></i> Ver carrito
                     </a>
 
