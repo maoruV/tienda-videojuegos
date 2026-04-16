@@ -34,7 +34,7 @@
                         <i class="bi bi-person-fill"></i>
                     </span>
                     <input type="text" name="{{ form.username.html_name }}"
-                        value="{{ form.username.value|default_if_none:'' }}" class="form-control bg-body"
+                        value="{{ form.username.value|default_if_none:'' }}" class="form-control bg-body text-body"
                         placeholder="Tu usuario">
                 </div>
                 {% if form.username.errors %}
@@ -52,7 +52,7 @@
                         <i class="bi bi-envelope-fill"></i>
                     </span>
                     <input type="email" name="{{ form.email.html_name }}"
-                        value="{{ form.email.value|default_if_none:'' }}" class="form-control bg-body"
+                        value="{{ form.email.value|default_if_none:'' }}" class="form-control bg-body text-body"
                         placeholder="tu@email.com">
                 </div>
                 {% if form.email.errors %}
@@ -71,7 +71,7 @@
                     </span>
 
                     <input type="password" name="{{ form.password1.html_name }}" id="{{ form.password1.id_for_label }}"
-                        class="form-control bg-body" placeholder="Contraseña">
+                        class="form-control bg-body text-body" placeholder="Contraseña">
 
                     <span class="input-group-text" onclick="togglePassword('{{ form.password1.id_for_label }}')">
                         <i class="bi bi-eye" id="icon-{{ form.password1.id_for_label }}"></i>
@@ -94,7 +94,7 @@
                     </span>
 
                     <input type="password" name="{{ form.password2.html_name }}" id="{{ form.password2.id_for_label }}"
-                        class="form-control bg-body" placeholder="Repite la contraseña">
+                        class="form-control bg-body text-body" placeholder="Repite la contraseña">
 
                     <span class="input-group-text" onclick="togglePassword('{{ form.password2.id_for_label }}')">
                         <i class="bi bi-eye" id="icon-{{ form.password2.id_for_label }}"></i>
