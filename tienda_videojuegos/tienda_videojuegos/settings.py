@@ -11,21 +11,34 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
+
+# Ruta base del proyecto
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Determinar entorno: desarrollo o produccion
+# En pythonanywhere definir DJANGO_PRODUCTION=1 en la consola o WSGI
+IS_PRODUCTION = os.environ.get('DJANGO_PRODUCTION') == '1'
+
+# Cargar variables de entorno
+ENV_FILE = Path(__file__).resolve().parent.parent.parent / ('.env_production' if IS_PRODUCTION else '.env_development')
+load_dotenv(ENV_FILE)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
+# Seguridad y depuracion
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)3=ji@iu=@xmal!t-aep&=jp@-7l#d$#$&upms)9u-56!f$ls1'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 
 # Application definition

@@ -1,4 +1,26 @@
-__pycache__/
-*.pyc
+# Entorno virtual
+env/
+.venv/
+
+# Archivos de entorno
 .env
+.env_development
+.env_production
+.env_production_mysql
+
+# Base de datos
 db.sqlite3
+
+# Rchivos compilados
+__pycache__/
+.ruff_cache/
+*.pyc
+*.pyo
+
+# Archivos estaticos recolectados
+/staticfiles/
+
+# Claves o certificados
+*.key
+*.pem
+
