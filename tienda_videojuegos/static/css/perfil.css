@@ -27,3 +27,48 @@ body {
 .btn {
     border-radius: 10px;
 }
+
+/* =========================================================
+    RESPONSIVE PERFIL
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .perfil-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .perfil-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .avatar i {
+        font-size: 4rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .perfil-card {
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
+
+    .avatar i {
+        font-size: 3.5rem;
+    }
+
+    .perfil-card h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .avatar i {
+        font-size: 3rem;
+    }
+}

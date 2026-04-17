@@ -92,3 +92,81 @@ body {
     border-radius: 15px;
     color: #cbd5f5;
 }
+
+/* =========================================================
+    RESPONSIVE CARRITO
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .carrito-container {
+        padding: 1.25rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .carrito-table {
+        font-size: 0.9rem;
+    }
+
+    .carrito-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .carrito-container {
+        padding: 1rem;
+    }
+
+    .resumen-carrito {
+        padding: 1.25rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .titulo-carrito {
+        font-size: 1.5rem;
+    }
+
+    .carrito-table thead th,
+    .carrito-table tbody td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .carrito-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carrito-vacio {
+        padding: 2rem;
+    }
+
+    .resumen-carrito {
+        padding: 1rem;
+    }
+
+    .resumen-carrito h3 {
+        font-size: 1.25rem;
+    }
+
+    .acciones .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .carrito-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carrito-table {
+        font-size: 0.8rem;
+    }
+}

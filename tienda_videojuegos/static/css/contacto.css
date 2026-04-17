@@ -62,3 +62,59 @@ h5 i {
 .alert i {
     font-size: 1.2rem;
 }
+
+/* =========================================================
+    RESPONSIVE CONTACTO
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .titulo-contacto {
+        font-size: 1.75rem;
+    }
+
+    .info-card,
+    .form-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .titulo-contacto {
+        font-size: 1.5rem;
+    }
+
+    .info-card,
+    .form-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .titulo-contacto {
+        font-size: 1.35rem;
+    }
+
+    .info-card,
+    .form-card {
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
+
+    .form-control {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .titulo-contacto {
+        font-size: 1.2rem;
+    }
+}

@@ -52,3 +52,62 @@
 a {
     text-decoration: none;
 }
+
+/* =========================================================
+    RESPONSIVE LOGIN
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .login-card {
+        padding: 2rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .login-wrapper {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    .login-logo {
+        max-width: 100px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
+
+    .login-logo {
+        max-width: 80px;
+    }
+
+    .form-control {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .login-card {
+        padding: 1rem;
+    }
+
+    .login-logo {
+        max-width: 70px;
+    }
+}

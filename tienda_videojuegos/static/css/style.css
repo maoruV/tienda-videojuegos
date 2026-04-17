@@ -262,15 +262,61 @@ body {
 }
 
 /* =========================================================
-   RESPONSIVE
-========================================================= */
+    RESPONSIVE
+ ========================================================= */
+
+/* Escritorio - Navbar organizado (min-width: 992px) */
+@media (min-width: 992px) {
+    #navbarGame {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .navbar-nav {
+        display: flex;
+        gap: 0.25rem;
+        margin-bottom: 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .d-flex.align-items-lg-center {
+        display: flex !important;
+        flex-shrink: 0;
+        gap: 0.75rem !important;
+    }
+
+    .d-flex.w-100.w-lg-auto {
+        display: flex !important;
+        flex-wrap: nowrap;
+    }
+
+    .search-input {
+        width: 180px !important;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.875rem;
+        border-radius: 20px;
+    }
+
+    .search-input + button {
+        border-radius: 20px;
+        padding: 0.35rem 0.6rem;
+    }
+
+    .navbar-nav.mb-2.mb-lg-0 {
+        margin-bottom: 0 !important;
+    }
+}
 
 /* Tablets */
 @media (max-width: 992px) {
 
     .navbar-brand span {
         display: none;
-        /* oculta texto en tablet */
     }
 
     .logo-navbar {

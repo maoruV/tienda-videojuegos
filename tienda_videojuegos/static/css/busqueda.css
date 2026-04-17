@@ -88,3 +88,60 @@ body {
 .custom-pagination .page-link:hover {
     background-color: #334155;
 }
+
+/* =========================================================
+    RESPONSIVE BUSQUEDA
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .titulo-busqueda {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .titulo-busqueda {
+        font-size: 1.5rem;
+    }
+
+    .game-card .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .titulo-busqueda {
+        font-size: 1.35rem;
+    }
+
+    .game-card .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .game-card .card-title {
+        font-size: 1rem;
+    }
+
+    .precio {
+        font-size: 0.95rem;
+    }
+
+    .no-resultados {
+        padding: 2rem;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .game-card .card-img-top {
+        height: 160px;
+    }
+
+    .game-card .card-title {
+        font-size: 0.9rem;
+    }
+}

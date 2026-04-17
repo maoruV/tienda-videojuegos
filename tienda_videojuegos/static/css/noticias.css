@@ -75,3 +75,64 @@ body {
     border-radius: 15px;
     color: #cbd5f5;
 }
+
+/* =========================================================
+    RESPONSIVE NOTICIAS
+ ========================================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .titulo-noticias {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .titulo-noticias {
+        font-size: 1.5rem;
+    }
+
+    .noticia-card .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .titulo-noticias {
+        font-size: 1.35rem;
+    }
+
+    .noticia-card {
+        margin-bottom: 1rem;
+    }
+
+    .noticia-card .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .noticia-card .card-title {
+        font-size: 1rem;
+    }
+
+    .descripcion {
+        font-size: 0.875rem;
+    }
+
+    .no-noticias {
+        padding: 2rem;
+    }
+}
+
+/* Very small */
+@media (max-width: 400px) {
+    .noticia-card .card-img-top {
+        height: 160px;
+    }
+
+    .noticia-card .card-title {
+        font-size: 0.95rem;
+    }
+}

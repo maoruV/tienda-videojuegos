@@ -8,7 +8,7 @@ def lista_juegos(request):
     juegos = Juego.objects.all().order_by('id')
 
     # 2. Paginador
-    paginator = Paginator(juegos, 6)
+    paginator = Paginator(juegos, 8)
 
     # 3. Página actual
     page_number = request.GET.get('page')
