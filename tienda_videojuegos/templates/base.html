@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshTdF7E6oW4T4J5BflxW2t2T(q)I)A5R1I6ckQ3e8tVfX1E5dX3gXW" crossorigin="anonymous"></script>
 
 
     <!-- SCRIPTS -->
@@ -92,14 +93,24 @@
                         <div class="d-flex align-items-lg-center flex-column flex-lg-row gap-2 gap-lg-3">
 
                             <!-- Buscar -->
-                            <form class="d-flex w-100 w-lg-auto" role="search" action="{% url 'buscador:buscar' %}"
-                                method="get">
-                                <input class="form-control me-2 search-input text-body bg-body" type="search" name="q"
-                                    placeholder="Buscar..." aria-label="Buscar" value="{{request.GET.q|default:''}}">
-                                <button class="btn btn-outline-secondary" type="submit">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </form>
+                            <div class="position-relative w-100 w-lg-auto">
+                                <div class="d-flex">
+                                    <input class="form-control me-2 search-input text-body bg-body" type="search"
+                                        name="q" placeholder="Buscar juegos..." aria-label="Buscar"
+                                        hx-get="{% url 'buscador:buscar_api' %}"
+                                        hx-trigger="keyup delay:300ms"
+                                        hx-target="#resultados-busqueda"
+                                        hx-indicator=".busqueda-loading"
+                                        autocomplete="off">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                                <div class="busqueda-loading position-absolute end-0 top-0 mt-2 me-4" style="display: none;">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                                <div id="resultados-busqueda" class="position-absolute w-100 mt-1" style="z-index: 1000;"></div>
+                            </div>
 
                             <!-- Carrito -->
                             <ul class="navbar-nav mb-2 mb-lg-0 order-6 order-lg-5 me-3">
