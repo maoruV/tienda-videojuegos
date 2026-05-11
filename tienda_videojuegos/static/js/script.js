@@ -62,3 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+// Buscador en tiempo real - cerrar dropdown
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector('input[name="q"]');
+    const resultadosDiv = document.getElementById('resultados-busqueda');
+    const searchContainer = searchInput?.closest('.position-relative');
+
+    if (searchInput && resultadosDiv && searchContainer) {
+        searchInput.addEventListener('input', function () {
+            if (this.value.trim() === '') {
+                resultadosDiv.innerHTML = '';
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!searchContainer.contains(e.target)) {
+                resultadosDiv.innerHTML = '';
+            }
+        });
+    }
+});

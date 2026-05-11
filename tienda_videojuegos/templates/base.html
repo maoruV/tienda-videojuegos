@@ -19,27 +19,6 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.querySelector('input[name="q"]');
-            const resultadosDiv = document.getElementById('resultados-busqueda');
-            const searchContainer = searchInput?.closest('.position-relative');
-
-            if (searchInput && resultadosDiv && searchContainer) {
-                searchInput.addEventListener('input', function() {
-                    if (this.value.trim() === '') {
-                        resultadosDiv.innerHTML = '';
-                    }
-                });
-
-                document.addEventListener('click', function(e) {
-                    if (!searchContainer.contains(e.target)) {
-                        resultadosDiv.innerHTML = '';
-                    }
-                });
-            }
-        });
-    </script>
 
     {% block extra_css %}{% endblock %}
 </head>
