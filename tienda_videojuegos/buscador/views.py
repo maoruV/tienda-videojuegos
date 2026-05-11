@@ -1,7 +1,22 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import JsonResponse
 from catalogo.models import Juego
+
+def buscar_json(request):
+    query = request.GET.get('q', '').strip()
+    
+    if len(query) >= 2:
+        juegos = Juego.objects.filter(
+            Q(nombre__icontains=query) |
+            Q(plataforma__icontains=query)
+        ).order_by('id')[:6]
+    else:
+        juegos = []
+    
+    return render(request, 'buscador/partials/resultados_dropdown.html', {'resultados': juegos})
+
 
 def buscar_juegos(request):
     query = request.GET.get('q')

@@ -24,3 +24,5 @@ __pycache__/
 *.key
 *.pem
 
+AGENTS.md
+
