@@ -63,13 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Buscador en tiempo real - cerrar dropdown
+// Buscador - cerrar dropdown
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector('input[name="q"]');
     const resultadosDiv = document.getElementById('resultados-busqueda');
-    const searchContainer = searchInput?.closest('.position-relative');
 
-    if (searchInput && resultadosDiv && searchContainer) {
+    if (searchInput && resultadosDiv) {
         searchInput.addEventListener('input', function () {
             if (this.value.trim() === '') {
                 resultadosDiv.innerHTML = '';
@@ -77,9 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.addEventListener('click', function (e) {
-            if (!searchContainer.contains(e.target)) {
+            const searchContainer = document.querySelector('.position-relative.w-100');
+            if (searchContainer && !searchContainer.contains(e.target)) {
                 resultadosDiv.innerHTML = '';
             }
         });
     }
 });
+
