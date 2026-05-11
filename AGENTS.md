@@ -32,6 +32,8 @@ python manage.py collectstatic
 ## Architecture Notes
 - **Custom User Model**: Uses `usuarios.Usuario` (not Django's default User)
 - **Shopping Cart**: Implemented via `carrito.context_processors.carrito_total`
+- **Real-time Search**: Uses HTMX (`hx-get`, `hx-trigger="keyup delay:300ms"`) on navbar input; endpoint at `buscador:buscar_api` returns partial HTML with max 6 results; dropdown JS logic in `static/js/script.js`
+- **Account Deletion**: POST-only view `usuarios:eliminar_cuenta` verifies password, cascade-deletes cart + items, deletes user, logs out, redirects to home
 - **Multi-app structure**: home, catalogo, buscador, usuarios, carrito, noticias
 
 ## Database

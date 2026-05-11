@@ -1,12 +1,13 @@
 # Tienda de Videojuegos
 
-Tienda en línea de videojuegos construida con Django. Proyecto completo con catálogo de juegos, carrito de compras, sistema de usuarios y noticias.
+Tienda en línea de videojuegos construida con Django. Proyecto completo con catálogo de juegos, carrito de compras, sistema de usuarios, noticias y buscador en tiempo real.
 
 ## Tecnologías
 
 - **Framework**: Django 6.0.4
 - **Lenguaje**: Python 3.x
 - **Base de datos**: SQLite (desarrollo) / MySQL/PostgreSQL (producción)
+- **Frontend**: Bootstrap 5, HTMX 2.x (búsqueda en tiempo real)
 - **Gestión de configuración**: python-dotenv
 
 ## Requisitos previos
@@ -124,25 +125,43 @@ tienda_videojuegos/
 │   ├── wsgi.py          # Entrada WSGI
 │   └── asgi.py          # Entrada ASGI
 ├── templates/            # Plantillas HTML
+│   └── base.html        # Plantilla base (navbar, footer, HTMX)
 ├── static/               # Archivos estáticos (CSS, JS, imágenes)
-└── home/                 # App página principal
-    catalogo/             # App catálogo de juegos
-    buscador/            # App búsqueda
-    usuarios/            # App usuarios
-    carrito/             # App carrito de compras
-    noticias/            # App noticias
+│   ├── css/
+│   ├── js/
+│   │   └── script.js    # Toggle tema, buscador dropdown, toasts
+│   └── img/             # Imágenes de juegos y logo
+├── home/                 # App página principal
+├── catalogo/            # App catálogo de juegos
+├── buscador/            # App búsqueda (HTMX + vista API)
+│   └── templates/buscador/partials/
+│       └── resultados_dropdown.html  # Resultados del buscador
+├── usuarios/            # App usuarios (registro, login, perfil, eliminar cuenta)
+├── carrito/             # App carrito de compras
+└── noticias/            # App noticias
 ```
 
 ## Apps incluidas
 
 | App | Descripción |
 |-----|-------------|
-| `home` | Página principal |
-| `catalogo` | Catálogo de videojuegos |
-| `buscador` | Sistema de búsqueda |
-| `usuarios` | registro/login de usuarios |
-| `carrito` | Carrito de compras |
+| `home` | Página principal y contacto |
+| `catalogo` | Catálogo de videojuegos con detalle |
+| `buscador` | Búsqueda en tiempo real con HTMX (endpoint API + dropdown) |
+| `usuarios` | Registro, inicio de sesión, perfil y eliminación de cuenta |
+| `carrito` | Carrito de compras con items |
 | `noticias` | Noticias y actualizaciones |
+
+## Funcionalidades destacadas
+
+### Búsqueda en tiempo real
+El campo de búsqueda en el navbar usa **HTMX** para consultar el endpoint `/buscador/api/` mientras escribes. Retorna hasta 6 juegos con imagen, nombre y precio en un dropdown. Si el campo está vacío o haces clic fuera, el dropdown se cierra automáticamente.
+
+### Eliminación de cuenta
+Desde el perfil de usuario puedes eliminar tu cuenta. Se abre un modal donde debes ingresar tu contraseña para confirmar. Al eliminar la cuenta se borran todos los datos asociados (carrito, items) y se redirige al inicio como invitado.
+
+### Carrito de compras
+Cada usuario autenticado tiene un carrito asociado. Se muestra un badge con el total de items en el navbar. Los items del carrito se eliminan automáticamente al eliminar la cuenta del usuario.
 
 ## Variables de entorno
 
